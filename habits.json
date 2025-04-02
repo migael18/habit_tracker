@@ -1,0 +1,11 @@
+[
+    {
+        "name": "run",
+        "description": "5km",
+        "frequency": "daily",
+        "current_streak": 0,
+        "longest_streak": 0,
+        "completed_goals": 0,
+        "pending_goals": 0
+    }
+]
