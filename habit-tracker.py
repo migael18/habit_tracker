@@ -2,6 +2,7 @@ import click
 from habits import add_habit, list_habits, mark_complete, delete_habit
 from analytics import view_streaks, view_analytics
 
+
 def main_menu():
     while True:
         print("\n📌 Welcome to the Habit Tracker! Choose an option:\n")
@@ -32,6 +33,7 @@ def main_menu():
             break
         else:
             print("Invalid choice. Please try again.")
+
 
 if __name__ == "__main__":
     main_menu()

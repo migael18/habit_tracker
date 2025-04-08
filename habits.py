@@ -1,5 +1,6 @@
 import json
 
+
 class Habit:
     def __init__(self, name, description, frequency, current_streak=0, longest_streak=0, completed_goals=0, pending_goals=0):
         self.name = name
@@ -43,6 +44,7 @@ class Habit:
             pending_goals=data.get("pending_goals", 0)
         )
 
+
 def load_habits():
     try:
         with open("habits.json", "r") as file:
@@ -50,6 +52,7 @@ def load_habits():
             return [Habit.from_dict(habit) for habit in data]
     except (FileNotFoundError, json.JSONDecodeError):
         return []
+
 
 def save_habits(habits):
     with open("habits.json", "w") as file:
@@ -59,6 +62,7 @@ def add_habit():
     name = input("Enter habit name: ")
     description = input("Enter habit description: ")
     frequency = input("Enter frequency (daily/weekly): ").strip().lower()
+
 
     if frequency not in ["daily", "weekly"]:
         print("Invalid frequency! Choose either 'daily' or 'weekly'.")
@@ -70,6 +74,7 @@ def add_habit():
     save_habits(habits)
     print(f"Habit '{name}' added successfully!")
 
+
 def list_habits():
     habits = load_habits()
     if not habits:
@@ -78,6 +83,7 @@ def list_habits():
     print("\n--- Habit List ---")
     for i, habit in enumerate(habits, start=1):
         print(f"{i}. {habit.name} - {habit.frequency} - Current Streak: {habit.current_streak}")
+
 
 def mark_complete():
     habits = load_habits()
